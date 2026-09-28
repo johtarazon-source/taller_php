@@ -8,6 +8,9 @@ spl_autoload_register(function (string $clase): void {
     }
 });
 
+// Hora local (UTC−5) para el historial de la calculadora.
+date_default_timezone_set('America/Bogota');
+
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }

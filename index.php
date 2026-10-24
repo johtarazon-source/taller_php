@@ -28,7 +28,6 @@ $aplicaciones = $menu->obtenerAplicaciones();
         ?>
         <small class="hero-edicion">ARCADE EDITION</small>
     </h1>
-    <p class="hero-subtitulo">Siete niveles, siete retos de programación. Elige un nivel para empezar a jugar.</p>
     <p class="press-start">▶ SELECCIONA TU NIVEL ◀</p>
 </section>
 

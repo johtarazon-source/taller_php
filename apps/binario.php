@@ -1,8 +1,6 @@
 <?php
-// Cargar configuración (sesión y fecha) - autoload removido
 require_once __DIR__ . '/../config/autoload.php';
 
-// Cargar clases necesarias directamente
 require_once __DIR__ . '/../clases/Pagina.php';
 require_once __DIR__ . '/../clases/Menu.php';
 require_once __DIR__ . '/../clases/Binario.php';

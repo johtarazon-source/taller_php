@@ -4,9 +4,6 @@ declare(strict_types=1);
 class Acronimo
 {
     /**
-     * Separa la frase en palabras: los guiones cuentan como separadores
-     * y el resto de signos de puntuación se eliminan.
-     *
      * @return string[]
      */
     public function palabras(string $entrada): array

@@ -1,5 +1,11 @@
 <?php
-require_once '../config/autoload.php';
+require_once __DIR__ . '/../config/autoload.php';
+
+require_once __DIR__ . '/../clases/Pagina.php';
+require_once __DIR__ . '/../clases/Menu.php';
+require_once __DIR__ . '/../clases/ArbolBinario.php';
+require_once __DIR__ . '/../clases/FondoRecreativo.php';
+require_once __DIR__ . '/../clases/DibujoPixel.php';
 
 $pagina = new Pagina('Árbol Binario', 'arbol');
 $nombres = ['preorden' => 'PREORDEN', 'inorden' => 'INORDEN', 'postorden' => 'POSTORDEN'];
@@ -7,7 +13,6 @@ $entradas = ['preorden' => '', 'inorden' => '', 'postorden' => ''];
 $resultado = null;
 $error = null;
 
-/** Convierte "A → B → D", "A, B, D" o "ABD" en ['A', 'B', 'D']. */
 function leerRecorrido(string $texto): array
 {
     $texto = trim($texto);
@@ -15,7 +20,6 @@ function leerRecorrido(string $texto): array
         return [];
     }
     $partes = preg_split('/[\s,;|>\-→]+/u', $texto, -1, PREG_SPLIT_NO_EMPTY);
-    // Sin separadores ("ABDEC"): cada carácter es un nodo.
     if (count($partes) === 1 && mb_strlen($partes[0]) > 1) {
         $partes = mb_str_split($partes[0]);
     }
@@ -32,7 +36,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
-    // Si llegan los tres recorridos, por defecto se usa preorden + inorden.
     if (isset($recorridos['preorden'], $recorridos['inorden'])) {
         $par = ['preorden', 'inorden'];
     } elseif (isset($recorridos['inorden'], $recorridos['postorden'])) {
@@ -62,7 +65,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'postorden' => $arbol->postorden(),
         ];
 
-        // Los recorridos usados deben coincidir con los del árbol construido.
         foreach ($par as $clave) {
             if ($calculados[$clave] !== implode(' → ', $recorridos[$clave])) {
                 $error = 'Los recorridos de ' . $nombres[$par[0]] . ' y ' . $nombres[$par[1]] . ' no corresponden a un mismo árbol binario.';

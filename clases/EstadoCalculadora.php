@@ -1,10 +1,7 @@
 <?php
 declare(strict_types=1);
 
-/**
- * Estado de la pantalla de la calculadora, guardado en la sesión.
- * Cada tecla pulsada llega por formulario y se procesa aquí.
- */
+
 class EstadoCalculadora
 {
     private const CLAVE = 'calc_estado';
@@ -52,7 +49,6 @@ class EstadoCalculadora
         $this->guardar();
     }
 
-    /** Línea pequeña de la pantalla: la operación en curso o la última realizada. */
     public function pantallaOperacion(): string
     {
         if ($this->operador !== '') {
@@ -61,7 +57,6 @@ class EstadoCalculadora
         return $this->expresion;
     }
 
-    /** Línea grande de la pantalla: el número que se está escribiendo o el resultado. */
     public function pantallaResultado(): string
     {
         if ($this->error !== '') {
@@ -84,7 +79,6 @@ class EstadoCalculadora
         }
         $lado = $this->operador === '' ? 'a' : 'b';
 
-        // Si se escribe después de un resultado, empieza un número nuevo.
         if ($lado === 'a' && $this->mostrandoResultado) {
             $this->a = '';
             $this->expresion = '';
@@ -116,7 +110,6 @@ class EstadoCalculadora
         }
         $this->mostrandoResultado = false;
 
-        // Si ya hay una operación completa, primero se resuelve (ej: 2 + 3 × ...).
         if ($this->b !== '' && $this->b !== '-') {
             $this->calcular();
             if ($this->error !== '') {

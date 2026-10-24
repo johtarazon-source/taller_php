@@ -1,5 +1,13 @@
 <?php
-require_once '../config/autoload.php';
+// Cargar configuración (sesión y fecha) - autoload removido
+require_once __DIR__ . '/../config/autoload.php';
+
+// Cargar clases necesarias directamente
+require_once __DIR__ . '/../clases/Pagina.php';
+require_once __DIR__ . '/../clases/Menu.php';
+require_once __DIR__ . '/../clases/Binario.php';
+require_once __DIR__ . '/../clases/FondoRecreativo.php';
+require_once __DIR__ . '/../clases/DibujoPixel.php';
 
 $pagina = new Pagina('Decimal a Binario', 'binario');
 $binario = new Binario();
@@ -33,7 +41,6 @@ $pagina->cabeceraApp(5, 'Convierte un número decimal a su representación binar
         <div class="formulario-grupo">
             <label for="numero">NÚMERO ENTERO EN BASE 10</label>
             <input type="number" id="numero" name="numero" step="1" required placeholder="156" value="<?= Pagina::e($numero) ?>">
-            <p class="ayuda">Acepta negativos: el signo se conserva delante del resultado.</p>
         </div>
         <div class="botones">
             <button type="submit" class="boton">▶ CONVERTIR</button>

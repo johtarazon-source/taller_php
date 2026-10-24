@@ -1,10 +1,7 @@
 <?php
 declare(strict_types=1);
 
-/**
- * Fondo animado estilo arcade: marcianos que marchan, tetrominós
- * que caen y Pac-Man perseguido por fantasmas.
- */
+
 class FondoRecreativo
 {
     private const INVASOR = [
@@ -49,7 +46,6 @@ class FondoRecreativo
         'L' => ['color' => '#ff9f1a', 'forma' => ['..#', '###']],
     ];
 
-    /** [pieza, posición horizontal %, duración s, retraso s, giro] */
     private const CAIDAS = [
         ['T', 6, 22, 0, 0],
         ['I', 24, 26, -11, 90],
@@ -115,7 +111,6 @@ class FondoRecreativo
             . '" shape-rendering="crispEdges">' . $celdas . '</svg>';
     }
 
-    /** Un bloque con relieve: brillo arriba/izquierda y sombra abajo/derecha. */
     private function bloque(int $x, int $y, string $color): string
     {
         $x2 = $x + 1;

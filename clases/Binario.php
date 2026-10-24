@@ -3,7 +3,6 @@ declare(strict_types=1);
 
 class Binario
 {
-    /** Convierte un entero a binario con divisiones sucesivas entre 2. */
     public function convertir(int $numero): string
     {
         $valor = abs($numero);
@@ -13,14 +12,12 @@ class Binario
 
         $binario = '';
         foreach ($this->obtenerPasos($valor) as $paso) {
-            // Los residuos se leen de abajo hacia arriba.
             $binario = $paso['residuo'] . $binario;
         }
 
         return ($numero < 0 ? '-' : '') . $binario;
     }
 
-    /** Divisiones sucesivas del valor absoluto del número, en el orden en que se hacen. */
     public function obtenerPasos(int $numero): array
     {
         $n = abs($numero);
@@ -46,7 +43,6 @@ class Binario
         return $pasos;
     }
 
-    /** Agrupa los bits de 4 en 4 desde la derecha: 101101 → 0010 1101 */
     public function grupos(string $binario): array
     {
         $bits = ltrim($binario, '-');

@@ -128,7 +128,6 @@ class Pagina
         ?>
 </main>
 <footer class="pie">
-    <span>TALLER DE PHP · HTML · CSS · PHP · POO</span>
     <span class="pie-parpadeo">INSERT COIN ▮</span>
 </footer>
 </body>

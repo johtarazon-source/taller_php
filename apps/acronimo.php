@@ -1,5 +1,11 @@
 <?php
-require_once '../config/autoload.php';
+require_once __DIR__ . '/../config/autoload.php';
+
+require_once __DIR__ . '/../clases/Pagina.php';
+require_once __DIR__ . '/../clases/Menu.php';
+require_once __DIR__ . '/../clases/Acronimo.php';
+require_once __DIR__ . '/../clases/FondoRecreativo.php';
+require_once __DIR__ . '/../clases/DibujoPixel.php';
 
 $pagina = new Pagina('Acrónimos', 'acronimo');
 $acronimo = new Acronimo();
@@ -16,7 +22,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-$ejemplos = ['As Soon As Possible', 'Liquid-crystal display', "Thank George It's Friday!", 'Portable Network Graphics'];
+$ejemplos = ['Tecnologías de la Información',
+    'Administración de Empresas',
+    'Sistema de Gestión de Inventarios',
+    'Documento Nacional de Identidad'];
 
 $pagina->encabezado();
 $pagina->cabeceraApp(1, 'Convierte frases largas en sus acrónimos');
@@ -30,7 +39,6 @@ $pagina->cabeceraApp(1, 'Convierte frases largas en sus acrónimos');
             <label for="entrada">FRASE O NOMBRE LARGO</label>
             <input type="text" id="entrada" name="entrada" maxlength="300" required
                    placeholder="Portable Network Graphics" value="<?= Pagina::e($entrada) ?>">
-            <p class="ayuda">Los guiones separan palabras; los demás signos de puntuación se ignoran.</p>
         </div>
         <div class="botones">
             <button type="submit" class="boton">▶ GENERAR ACRÓNIMO</button>

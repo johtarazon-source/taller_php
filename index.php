@@ -1,5 +1,9 @@
 <?php
 require_once 'config/autoload.php';
+require_once 'clases/Pagina.php';
+require_once 'clases/Menu.php';
+require_once 'clases/DibujoPixel.php';
+require_once 'clases/FondoRecreativo.php';
 
 $pagina = new Pagina('Taller de PHP', 'inicio', '');
 $pagina->encabezado();
@@ -17,7 +21,7 @@ $aplicaciones = $menu->obtenerAplicaciones();
         foreach (['TALLER', 'PHP'] as $palabra) {
             echo '<span class="titulo-palabra">';
             foreach (mb_str_split($palabra) as $letra) {
-                echo '<b class="letra-arcade" style="color: ' . $coloresArcade[$indice++ % 7] . ';">' . $letra . '</b>';
+                echo '<b class="letra-arcade" data-color="' . $coloresArcade[$indice++ % 7] . ';">' . $letra . '</b>';
             }
             echo '</span> ';
         }
@@ -32,7 +36,7 @@ $aplicaciones = $menu->obtenerAplicaciones();
 
 <div class="apps-grid">
     <?php foreach ($aplicaciones as $i => $app): ?>
-        <a href="apps/<?= Pagina::e($app['clave']) ?>.php" class="app-card" style="--card-color: <?= Pagina::e($app['color']) ?>;">
+        <a href="apps/<?= Pagina::e($app['clave']) ?>.php" class="app-card" data-card-color="<?= Pagina::e($app['color']) ?>">
             <div class="app-card-top">
                 <?= (new DibujoPixel($app['dibujo'], $app['color']))->dibujar(56) ?>
                 <div class="app-nivel">

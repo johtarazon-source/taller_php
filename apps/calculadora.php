@@ -1,5 +1,12 @@
 <?php
-require_once '../config/autoload.php';
+require_once __DIR__ . '/../config/autoload.php';
+
+require_once __DIR__ . '/../clases/Pagina.php';
+require_once __DIR__ . '/../clases/Menu.php';
+require_once __DIR__ . '/../clases/EstadoCalculadora.php';
+require_once __DIR__ . '/../clases/FondoRecreativo.php';
+require_once __DIR__ . '/../clases/DibujoPixel.php';
+require_once __DIR__ . '/../clases/Calculadora.php';
 
 $pagina = new Pagina('Calculadora', 'calculadora');
 $estado = new EstadoCalculadora();
@@ -11,14 +18,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $estado->pulsar((string) $_POST['tecla']);
     }
 
-    // Patrón POST/Redirect/GET: al recargar la página no se repite la última tecla.
     header('Location: calculadora.php');
     exit;
 }
 
 $historial = Calculadora::obtenerHistorial();
 
-// Distribución del teclado: [tecla, texto, clase extra, descripción]
 $teclado = [
     ['limpiar', 'C', 'tecla-borrar', 'Limpiar'],
     ['retroceso', '⌫', '', 'Borrar último dígito'],

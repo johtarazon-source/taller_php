@@ -1,10 +1,7 @@
 <?php
 declare(strict_types=1);
 
-/**
- * Dibuja una figura pixelada en SVG a partir de un mapa de texto,
- * donde '#' es un pixel encendido y '.' un pixel vacío.
- */
+
 class DibujoPixel
 {
     /** @param string[] $mapa */

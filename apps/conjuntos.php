@@ -1,5 +1,11 @@
 <?php
-require_once '../config/autoload.php';
+require_once __DIR__ . '/../config/autoload.php';
+
+require_once __DIR__ . '/../clases/Pagina.php';
+require_once __DIR__ . '/../clases/Menu.php';
+require_once __DIR__ . '/../clases/Conjuntos.php';
+require_once __DIR__ . '/../clases/FondoRecreativo.php';
+require_once __DIR__ . '/../clases/DibujoPixel.php';
 
 $pagina = new Pagina('Conjuntos', 'conjuntos');
 $entradaA = '';
@@ -7,7 +13,6 @@ $entradaB = '';
 $resultado = null;
 $error = null;
 
-/** Convierte "1, 2 3;4" en [1, 2, 3, 4]. Devuelve null si hay algo que no es entero. */
 function leerConjunto(string $texto): ?array
 {
     $partes = preg_split('/[\s,;{}]+/', $texto, -1, PREG_SPLIT_NO_EMPTY);
@@ -21,13 +26,11 @@ function leerConjunto(string $texto): ?array
     return $numeros;
 }
 
-/** Texto de un conjunto: { 1, 2, 3 } o ∅ */
 function mostrarConjunto(array $elementos): string
 {
     return empty($elementos) ? '∅' : '{ ' . implode(', ', $elementos) . ' }';
 }
 
-/** Escribe los elementos de una región del diagrama de Venn en varias líneas. */
 function regionVenn(array $elementos, int $x): string
 {
     if (empty($elementos)) {

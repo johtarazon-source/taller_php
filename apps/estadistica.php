@@ -1,5 +1,11 @@
 <?php
-require_once '../config/autoload.php';
+require_once __DIR__ . '/../config/autoload.php';
+
+require_once __DIR__ . '/../clases/Pagina.php';
+require_once __DIR__ . '/../clases/Menu.php';
+require_once __DIR__ . '/../clases/Estadistica.php';
+require_once __DIR__ . '/../clases/FondoRecreativo.php';
+require_once __DIR__ . '/../clases/DibujoPixel.php';
 
 const MAX_NUMEROS = 40;
 
@@ -9,7 +15,6 @@ $valores = [];
 $resultado = null;
 $error = null;
 
-// Paso 1: el usuario decide cuántos números va a ingresar.
 if (isset($_REQUEST['cantidad'])) {
     $cantidad = filter_var($_REQUEST['cantidad'], FILTER_VALIDATE_INT, [
         'options' => ['min_range' => 1, 'max_range' => MAX_NUMEROS],
@@ -20,7 +25,6 @@ if (isset($_REQUEST['cantidad'])) {
     }
 }
 
-// Paso 2: se reciben los números y se calculan las medidas.
 if ($cantidad !== null && $_SERVER['REQUEST_METHOD'] === 'POST') {
     $valores = array_map('strval', (array) ($_POST['numeros'] ?? []));
     $numeros = [];

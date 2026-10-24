@@ -36,13 +36,11 @@ class Calculadora
         return $a / $b;
     }
 
-    /** a % b = el a por ciento de b (por ejemplo 20 % 150 = 30). */
     public static function porcentaje(float $valor, float $porcentaje): float
     {
         return ($valor / 100) * $porcentaje;
     }
 
-    /** Ejecuta la operación indicada por su nombre. */
     public static function operar(float $a, string $operador, float $b): float
     {
         return match ($operador) {
@@ -55,7 +53,6 @@ class Calculadora
         };
     }
 
-    /** Muestra un número sin ceros sobrantes (0.30000000000000004 → 0.3). */
     public static function formatear(float $numero): string
     {
         $texto = rtrim(rtrim(sprintf('%.10F', $numero), '0'), '.');

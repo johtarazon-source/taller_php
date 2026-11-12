@@ -101,10 +101,6 @@ $pagina->cabeceraApp(6, 'Reconstruye un árbol binario a partir de sus recorrido
                 </div>
             <?php endforeach; ?>
         </div>
-        <p class="ayuda" style="margin: -6px 0 18px;">
-            Llena <strong>mínimo dos</strong> recorridos. Separa los nodos con espacios, comas o flechas (A → B → D).
-            Si llenas los tres, se usa preorden + inorden.
-        </p>
         <div class="botones">
             <button type="submit" class="boton">▶ CONSTRUIR ÁRBOL</button>
         </div>

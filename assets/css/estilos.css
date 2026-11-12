@@ -296,6 +296,7 @@ a { color: inherit; }
 /* ---------- Contenido ---------- */
 
 .contenido {
+    position: static;
     flex: 1;
     width: 100%;
     max-width: 1180px;
@@ -756,7 +757,6 @@ h1, h2, h3 { font-family: var(--f-pixel); font-weight: 400; line-height: 1.5; }
 .marcador strong { display: block; font-family: var(--f-digital); font-size: 44px; line-height: 1; font-weight: 400; color: var(--fg); word-break: break-all; }
 .marcador p { font-size: 14px; color: var(--fg-muted); margin-top: 8px; }
 
-/* Barra tipo "vida" para frecuencias */
 .barra-vida {
     height: 14px;
     background: #08080f;
@@ -792,7 +792,7 @@ td {
 tbody tr:hover { background: color-mix(in srgb, var(--accent) 10%, transparent); }
 .td-resaltar { color: var(--accent); }
 
-/* ---------- 01 · Acrónimo: fichas de letras ---------- */
+/* ---------- 01.Acrónimo ---------- */
 
 .letras { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 18px; }
 

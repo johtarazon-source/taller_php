@@ -140,7 +140,6 @@ class Menu
         return null;
     }
 
-    /** Posición (1..7) de la aplicación dentro del menú. */
     public function numero(string $clave): int
     {
         foreach ($this->aplicaciones as $i => $app) {

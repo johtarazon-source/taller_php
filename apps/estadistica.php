@@ -87,7 +87,6 @@ $pagina->cabeceraApp(3, 'Promedio, Mediana y Moda de una serie de números');
                 </div>
             <?php endfor; ?>
         </div>
-        <p class="ayuda" style="margin: -6px 0 18px;">Se aceptan enteros, negativos y decimales con punto o coma.</p>
         <div class="botones">
             <button type="submit" class="boton">▶ CALCULAR</button>
         </div>

@@ -25,7 +25,6 @@ class Pagina
         return htmlspecialchars((string) $valor, ENT_QUOTES, 'UTF-8');
     }
 
-    /** Estrellas de dificultad, por ejemplo ★★☆ */
     public static function estrellas(int $cantidad, int $maximo = 3): string
     {
         return str_repeat('★', $cantidad) . str_repeat('☆', $maximo - $cantidad);
@@ -55,7 +54,6 @@ class Pagina
 </div>
 <div class="crt" aria-hidden="true"></div>
 
-<!-- Menú móvil sin JavaScript: el checkbox abre y cierra la barra de niveles -->
 <input type="checkbox" id="menu-abierto" class="menu-check">
 
 <header class="hud">
@@ -113,7 +111,6 @@ class Pagina
         <?php
     }
 
-    /** Muestra un mensaje de error con estilo "game over". */
     public static function error(?string $mensaje): void
     {
         if ($mensaje === null || $mensaje === '') {

@@ -92,7 +92,6 @@ $pagina->cabeceraApp(4, 'Unión, Intersección y Diferencias de Conjuntos');
                 <input type="text" id="conjuntoB" name="conjuntoB" placeholder="4, 5, 6, 7" value="<?= Pagina::e($entradaB) ?>">
             </div>
         </div>
-        <p class="ayuda" style="margin: -6px 0 18px;">Números enteros separados por comas o espacios. Los repetidos se cuentan una sola vez.</p>
         <div class="botones">
             <button type="submit" class="boton">▶ CALCULAR OPERACIONES</button>
         </div>

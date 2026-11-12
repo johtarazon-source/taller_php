@@ -148,10 +148,6 @@ class ArbolBinario
         $resultado[] = $nodo->valor;
     }
 
-    /**
-     * Comprueba que dos recorridos tengan los mismos valores, sin repetir.
-     * Devuelve el mensaje de error o null si son válidos.
-     */
     public static function validar(array $recorrido1, array $recorrido2): ?string
     {
         if (count($recorrido1) !== count(array_unique($recorrido1)) || count($recorrido2) !== count(array_unique($recorrido2))) {
@@ -190,10 +186,6 @@ class ArbolBinario
         return $nodo === null ? 0 : 1 + max($this->medirAltura($nodo->izq), $this->medirAltura($nodo->der));
     }
 
-    /**
-     * Dibuja el árbol en SVG: la columna de cada nodo es su posición
-     * en el recorrido inorden y la fila es su profundidad.
-     */
     public function dibujarSvg(): string
     {
         if ($this->raiz === null) {
